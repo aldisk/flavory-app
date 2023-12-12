@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class Resep extends Model
 {
     use HasFactory;
+
+    public function getAll() {
+        return DB::table('reseps')->get();
+    }
 
     public function search($searchToken, $page){
         $epp = 6;
